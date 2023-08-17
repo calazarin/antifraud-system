@@ -1,0 +1,39 @@
+management:
+  endpoint:
+    shutdown:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+server:
+  servlet:
+    context-path: /antifraud
+  error:
+    include-message: always
+  port: 28852
+
+spring:
+  datasource:
+    driverClassName: org.h2.Driver
+    password: password
+    url: jdbc:h2:mem:service_db
+    username: sa
+  h2:
+    console:
+      enabled: true
+      settings:
+          trace: false
+  jackson:
+    serialization:
+      INDENT_OUTPUT: true
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
